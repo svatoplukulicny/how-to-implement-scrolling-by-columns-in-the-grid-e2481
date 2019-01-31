@@ -1,26 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System;
 
 
-namespace WindowsApplication3 {
-    public partial class Form1: XtraForm {
-        public Form1() {
+namespace WindowsApplication3
+{
+    public partial class Form1 : XtraForm
+    {
+        public Form1()
+        {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
-            // TODO: This line of code loads data into the 'nwindDataSet.Employees' table. You can move, or remove it, as needed.
-            this.employeesTableAdapter.Fill(this.nwindDataSet.Employees);
+        private void Form1_Load(object sender, EventArgs e)
+        {
             GridHScrollHelper helper = new GridHScrollHelper(gridView1);
             helper.EnableScrollByColumns();
+            gridControl1.DataSource = ItemList.GetList();
+            gridView1.Columns[0].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
         }
-
-      
     }
 }

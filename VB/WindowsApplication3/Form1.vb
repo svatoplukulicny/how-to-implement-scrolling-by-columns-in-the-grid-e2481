@@ -1,12 +1,6 @@
 Imports Microsoft.VisualBasic
-Imports System
-Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.Data
-Imports System.Drawing
-Imports System.Text
-Imports System.Windows.Forms
 Imports DevExpress.XtraEditors
+Imports System
 
 
 Namespace WindowsApplication3
@@ -17,12 +11,10 @@ Namespace WindowsApplication3
 		End Sub
 
 		Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-			' TODO: This line of code loads data into the 'nwindDataSet.Employees' table. You can move, or remove it, as needed.
-			Me.employeesTableAdapter.Fill(Me.nwindDataSet.Employees)
 			Dim helper As New GridHScrollHelper(gridView1)
 			helper.EnableScrollByColumns()
+			gridControl1.DataSource = ItemList.GetList()
+			gridView1.Columns(0).Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
 		End Sub
-
-
 	End Class
 End Namespace
